@@ -1,14 +1,14 @@
 [site]
 title = "Ziying Wang"
 description = "CS senior at Duke Kunshan University, researching Creative AI x HCI."
-favicon = "/favicon.svg"
+favicon = "/PersonalWebsite/favicon.svg"
 last_updated = "July 13, 2026"
 
 [author]
 name = "Ziying Wang"
 title = "CS Senior · PhD Applicant (Fall 2027)"
 institution = "Duke Kunshan University"
-avatar = "/bio.jpg"
+avatar = "/PersonalWebsite/bio.jpg"
 
 [social]
 # Contact information (leave blank or delete to hide)
