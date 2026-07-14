@@ -1,0 +1,63 @@
+[site]
+title = "Ziying Wang"
+description = "CS senior at Duke Kunshan University, researching Creative AI x HCI."
+favicon = "/favicon.svg"
+last_updated = "July 13, 2026"
+
+[author]
+name = "Ziying Wang"
+title = "CS Senior · PhD Applicant (Fall 2027)"
+institution = "Duke Kunshan University"
+avatar = "/bio.jpg"
+
+[social]
+# Contact information (leave blank or delete to hide)
+
+email = "zw315@duke.edu"
+location = "Kunshan, China"
+location_url = "https://maps.google.com"
+location_details = [
+  "Duke Kunshan University,",
+  "Kunshan, Jiangsu, China"
+]
+google_scholar = "https://scholar.google.com/citations?user=4hrJH9IAAAAJ&hl=en"
+orcid = ""
+github = ""
+linkedin = ""
+
+[features]
+# Show a like button on the about page
+enable_likes = true
+
+# Display all subpages on a single page
+enable_one_page_mode = false
+
+[i18n]
+enabled = false
+locales = ["en"]
+default_locale = "en"
+mode = "fixed"
+fixed_locale = "en"
+persist = true
+switcher = false
+
+[i18n.labels]
+en = "English"
+
+[[navigation]]
+title = "About"
+type = "page"
+target = "about"
+href = "/"
+
+[[navigation]]
+title = "Publications"
+type = "page"
+target = "publications"
+href = "/publications"
+
+[[navigation]]
+title = "CV"
+type = "link"
+target = "cv"
+href = "/cv.pdf"

@@ -1,0 +1,3 @@
+I am a senior undergraduate studying Computer Science at [Duke Kunshan University](https://dukekunshan.edu.cn/), applying to HCI PhD programs for Fall 2027.
+
+My research focuses on Creative AI and Human-AI Interaction. I am advised by [Prof. Yucheng Jin](https://yucheng.gold/) at Duke Kunshan University, and I collaborate externally with [Prof. Jason Wu](https://jasonwunix.com/) (Purdue University) and [Prof. Zhicong Lu](https://luzhc.github.io/) (George Mason University).
