@@ -22,6 +22,14 @@ interface PublicationsListProps {
     embedded?: boolean;
 }
 
+const previewAspect: Record<string, string> = {
+    'show-our-bonds-teaser.png': 'aspect-[2.1/1]',
+    'qualia-skin-teaser.png': 'aspect-[2.1/1]',
+    'you-really-didnt-get-that-teaser.png': 'aspect-[2.05/1]',
+    'guide-teaser.png': 'aspect-[1.9/1]',
+    'emotistage-teaser.png': 'aspect-[1.7/1]',
+};
+
 export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
     const messages = useMessages();
     const [searchQuery, setSearchQuery] = useState('');
@@ -68,6 +76,11 @@ export default function PublicationsList({ config, publications, embedded = fals
                 {config.description && (
                     <p className={`${embedded ? "text-base" : "text-lg"} text-neutral-600 dark:text-neutral-500 max-w-2xl`}>
                         {config.description}
+                    </p>
+                )}
+                {publications.some(pub => pub.authors.some(author => author.isCorresponding)) && (
+                    <p className="mt-2 text-sm italic text-neutral-500 dark:text-neutral-400">
+                        * indicates equal contribution
                     </p>
                 )}
             </div>
@@ -199,14 +212,17 @@ export default function PublicationsList({ config, publications, embedded = fals
                         >
                             <div className="flex flex-col md:flex-row gap-6">
                                 {pub.preview && (
-                                    <div className="w-full md:w-48 flex-shrink-0">
-                                        <div className="aspect-video md:aspect-[4/3] relative rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+                                    <div className="w-full md:w-[38%] md:max-w-[320px] md:self-center flex-shrink-0">
+                                        <div className={cn(
+                                            'relative rounded-lg overflow-hidden bg-white dark:bg-neutral-950 border border-neutral-200/70 dark:border-neutral-800',
+                                            previewAspect[pub.preview] ?? 'aspect-[16/10]'
+                                        )}>
                                             <Image
-                                                src={`/papers/${pub.preview}`}
+                                                src={`/PersonalWebsite/papers/${pub.preview}`}
                                                 alt={pub.title}
                                                 fill
-                                                className="object-cover"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                className="object-cover object-center"
+                                                sizes="(max-width: 768px) 100vw, 320px"
                                             />
                                         </div>
                                     </div>
@@ -222,14 +238,15 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                     {author.name}
                                                 </span>
                                                 {author.isCorresponding && (
-                                                    <sup className={`ml-0 ${author.isHighlighted ? 'text-accent' : 'text-neutral-600 dark:text-neutral-400'}`}>†</sup>
+                                                    <sup className={`ml-0 ${author.isHighlighted ? 'text-accent' : 'text-neutral-600 dark:text-neutral-400'}`}>*</sup>
                                                 )}
                                                 {idx < pub.authors.length - 1 && ', '}
                                             </span>
                                         ))}
                                     </p>
                                     <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
-                                        {pub.journal || pub.conference} {pub.year}
+                                        {pub.journal || pub.conference}
+                                        {(pub.journal || pub.conference)?.toLowerCase() !== 'in submission' && ` ${pub.year}`}
                                     </p>
 
                                     {pub.description && (
